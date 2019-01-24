@@ -5,7 +5,7 @@ A [Greasemonkey](https://www.greasespot.net/) / [Tampermonkey](https://tampermon
 1. Install a suitable user script processor for your browser first. 
 
    For Firefox you can use [Greasemonkey](https://www.greasespot.net/), for Chrome you can use [Tampermonkey](https://tampermonkey.net/).
-1. Navigatate to the [raw link for RedmineLayoutFixer.user.js](https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.js) and load it.
+1. Navigate to the [raw link for RedmineLayoutFixer.user.js](https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.js) and load it.
 1. Accept the installation.
 
 # Usage
