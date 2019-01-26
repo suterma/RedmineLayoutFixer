@@ -18,26 +18,43 @@
 
 (function () {
   'use strict';
+    //Add the styles
+    function addGlobalStyle(css) {
+        var head, style;
+        head = document.getElementsByTagName('head')[0];
+        if (!head) { return; }
+        style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = css;
+        head.appendChild(style);
+    }
+
+    //Add css (this is a minified version of the RedmineLayoutFixer.user.css file)
+    //TODO minify and insert
+    addGlobalStyle(".copy-icon{}");
 
   // get the content header of an issue
   var issueHeader = $("html body.controller-issues div#wrapper div#main div#content h2");
 
   // insert it into the subject of the issue
   var issueSubject = $("html body div#main div#content div.issue div.subject");
-  //issueSubject.insertAdjacentElement('afterbegin', issueHeader);
   issueSubject.prepend(issueHeader);
   
   //TODO try a button to copy a text for selection (does not work right now)
-  var button = document.createElement('input');
-  button.type  = 'button';
-  button.value = 'copy';
+  var button = document.createElement('a');
+  button.setAttribute('href', 'javascript:void(0)');
+  button.innerHTML = '&nbsp;';
+  button.className = "copy-icon";
+  button.title ='Click to copy the subject to the clipboard.';
   button.addEventListener('click', function() {
     //$("div.subject").innerHTML.select();
     //document.execCommand("copy");
     //alert("Copied the text: " + $("html body div#main div#content div.issue div.subject").innerText);
-    var subjectNode = $("div.subject h3");
+    var subjectNode = $("div.subject");
     alert(subjectNode.text());
     //TODO continue: Der subject node ist irgendwie nicht richtig definiert. Das untenstehende Select funktioniert nicht
+    
+    navigator.clipboard.writeText(subjectNode.text());
     
     var range = document.createRange();
      range.selectNode(subjectNode);
