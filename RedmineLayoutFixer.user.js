@@ -40,7 +40,7 @@
   var issueSubject = $("html body div#main div#content div.issue div.subject");
   issueSubject.prepend(issueHeader);
   
-  //TODO try a button to copy a text for selection (does not work right now)
+  // create a clickable link, to copy the subject text
   var button = document.createElement('a');
   button.setAttribute('href', 'javascript:void(0)');
   button.innerHTML = '&nbsp;';
@@ -51,21 +51,24 @@
     //document.execCommand("copy");
     //alert("Copied the text: " + $("html body div#main div#content div.issue div.subject").innerText);
     var subjectNode = $("div.subject");
-    alert(subjectNode.text());
     //TODO continue: Der subject node ist irgendwie nicht richtig definiert. Das untenstehende Select funktioniert nicht
     
     navigator.clipboard.writeText(subjectNode.text());
+    alert(subjectNode.text());
     
+    /*
     var range = document.createRange();
      range.selectNode(subjectNode);
      document.window.getSelection().addRange(range);
      document.execCommand("copy");
      alert("text copied") ;
-    
+    */
     
   }, false);
+  var subjectTitle = $("div.subject h3");
+  subjectTitle.append(button);
   //button.insertBefore(issueHeader);
   //issueHeader.appendChild(button);
-  issueSubject.append(button);
+  //issueSubject.append(button);
 
 }) ();
