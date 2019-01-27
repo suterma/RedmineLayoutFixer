@@ -38,4 +38,11 @@
     height: 1.5em;
     width: 1.5em;
     display: inline-flex;
+    margin-left: 10px;
+}
+
+
+/* Align the subject header to the text in the issue */
+div.subject h2 {
+    margin: 0 0 0 0;
 }
