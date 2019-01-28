@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     Redmine Issue Header Layout fixer
-// @namespace    https://github.com/suterma/
+// @namespace    https://github.com/suterma/RedmineLayoutFixer/
 // @description In Redmine issue tracking, issue details view, moves the issue's content title in the issue body part, next to the exisiting subjet. This allows easy copy-paste of the issue's caption, consisting of the issue title and subject at once.
 // @author       opensource@marcelsuter.ch, GPLv3 License
 // @require  https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
