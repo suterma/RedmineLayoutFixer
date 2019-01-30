@@ -4,7 +4,7 @@
 // @description In Redmine issue tracking, issue details view, moves the issue's content title in the issue body part, next to the exisiting subjet. This allows easy copy-paste of the issue's caption, consisting of the issue title and subject at once.
 // @author       opensource@marcelsuter.ch, GPLv3 License
 // @require  https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
-// @include  https://*/redmine/issues/*
+// @include  https://*redmine*/issues/*
 // @version  1.0
 // @grant    none
 // @downloadURL  https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.js
@@ -34,9 +34,11 @@
     addGlobalStyle(".copy-icon{}");
 
   // get the content header of an issue
+  //redmine.org: html body.theme-Redmine.project-redmine.controller-issues.action-show div#wrapper div#wrapper2 div#wrapper3 div#main div#content h2
   var issueHeader = $("html body.controller-issues div#wrapper div#main div#content h2");
 
   // insert it into the subject of the issue
+  //redmine.org: html body.theme-Redmine.project-redmine.controller-issues.action-show div#wrapper div#wrapper2 div#wrapper3 div#main div#content div.issue.tracker-1.status-1.priority-4.priority-default.details div.subject div h3
   var issueSubject = $("html body div#main div#content div.issue div.subject");
   issueSubject.prepend(issueHeader);
   
