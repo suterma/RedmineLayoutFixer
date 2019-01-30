@@ -1,36 +1,16 @@
-/*
-    RedmineLayoutFixer, rearranges the layout of Redmine issue pages.
-    Copyright (C) 2018 by marcel suter, opensource@marcelsuter.ch
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
 /* ==UserStyle==
-@name     Redmine Issue Header Layout fixer
+@name        RedmineLayoutFixer, rearranges the layout of Redmine issue pages.
 @namespace   https://github.com/suterma/RedmineLayoutFixer/
 @description For the RedmineLayoutFixer.user.js, this provices the styling. Use with URL's matching the regexp: https://.*redmine.*\/issues\/.*
-@author       opensource@marcelsuter.ch, GPLv3 License
-@version 1.0.0-beta
-@grant    none
-@downloadURL  https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.css
-@updateURL    https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.css
+@author      opensource@marcelsuter.ch, GPLv3 License
+@version     1.0.1
+@grant       none
+@downloadURL https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.css
+@updateURL   https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.css
 ==/UserStyle== */
-
 /* Overview
  * This CSS styles an icon in a "copy text link"
  */
-
 /* The introduced icon should not disturb the layout, and preferrably
     appear just right of the target element */
 .copy-icon {
@@ -39,8 +19,7 @@
        The open iconic set is provided under the 
        MIT License See https://opensource.org/licenses/MIT.
        */
-    background-image: 
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="8" height="8" data-icon="file" viewBox="0 0 8 8"> <path d="M0 0v8h7v-4h-4v-4h-3zm4 0v3h3l-3-3z" /></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="8" height="8" data-icon="file" viewBox="0 0 8 8"> <path style="fill:rgb(85, 85, 85);" d="M0 0v8h7v-4h-4v-4h-3zm4 0v3h3l-3-3z" /></svg>');
 
     background-size: 1em;
     background-repeat: no-repeat;
@@ -51,6 +30,12 @@
     width: 1.5em;
     display: inline-flex;
     margin-left: 10px;
+}
+/* style similar to link on hover */
+.copy-icon:hover {
+
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="8" height="8" data-icon="file" viewBox="0 0 8 8"> <path style="fill:rgb(198, 26, 26);" d="M0 0v8h7v-4h-4v-4h-3zm4 0v3h3l-3-3z" /></svg>');
+    text-decoration-line: none;
 }
 
 
@@ -72,13 +57,15 @@ div.issue {
 div#issue-changesets {
     background: #f0f0f0;
 }
-table.list:not(.odd-even) tbody tr:nth-child(2n), .even, #issue-changesets div.changeset:nth-child(2n) {
+table.list:not(.odd-even) tbody tr:nth-child(2n),
+.even,
+#issue-changesets div.changeset:nth-child(2n) {
     background: #f0f0f0;
 }
 
 /* Use full width */
 #wrapper3,
-#header, 
+#header,
 #top-menu,
 #main {
     margin: 0;
