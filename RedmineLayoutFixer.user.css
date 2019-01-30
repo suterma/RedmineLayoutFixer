@@ -58,3 +58,28 @@
 div.subject h2 {
     margin: 0 0 0 0;
 }
+
+/* Simplify issues visualization*/
+div.issue {
+    background: none;
+    padding: 0;
+    border: none;
+}
+#content {
+    /*background: #f0f0f0;*/
+    background-color: #ffffdd;
+}
+div#issue-changesets {
+    background: #f0f0f0;
+}
+table.list:not(.odd-even) tbody tr:nth-child(2n), .even, #issue-changesets div.changeset:nth-child(2n) {
+    background: #f0f0f0;
+}
+
+/* Use full width */
+#wrapper3,
+#header, 
+#top-menu,
+#main {
+    margin: 0;
+}
