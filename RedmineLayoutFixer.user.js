@@ -1,19 +1,20 @@
 // ==UserScript==
-// @name     Redmine Issue Header Layout fixer
-// @namespace    https://github.com/suterma/RedmineLayoutFixer/
-// @description In Redmine issue tracking, issue details view, moves the issue's content title in the issue body part, next to the exisiting subjet. This allows easy copy-paste of the issue's caption, consisting of the issue title and subject at once.
+// @name         RedmineLayoutFixer, rearranges the layout of Redmine issue pages.
+// @namespace    https://github.com/suterma/
+// @description  In Redmine issue tracking, issue details view, moves the issue's content title in the issue body part, next to the exisiting subjet. This allows easy copy-paste of the issue's caption, consisting of the issue title and subject at once.
 // @author       opensource@marcelsuter.ch, GPLv3 License
-// @require  https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
-// @include  https://*redmine*/issues/*
-// @version  1.0
-// @grant    none
+// @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+// @include      https://*/redmine/issues/*
+// @version      1.02
+// @grant        none
 // @downloadURL  https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.js
 // @updateURL    https://github.com/suterma/RedmineLayoutFixer/raw/master/RedmineLayoutFixer.user.js
 // ==/UserScript==
 // ---------------------------------------
 // Changelog
 // 1.0    (2019-01-24) Initial version
-// 1.01   (2019-01-24) Try to use a button for copy-paste
+// 1.01   (2019-01-24) Use a button for copy-paste
+// 1.02   (2019-01-30) Style for foswiki
 // ---------------------------------------
 
 (function () {
@@ -34,43 +35,26 @@
     addGlobalStyle(".copy-icon{}");
 
   // get the content header of an issue
-  //redmine.org: html body.theme-Redmine.project-redmine.controller-issues.action-show div#wrapper div#wrapper2 div#wrapper3 div#main div#content h2
   var issueHeader = $("html body.controller-issues div#wrapper div#main div#content h2");
 
   // insert it into the subject of the issue
-  //redmine.org: html body.theme-Redmine.project-redmine.controller-issues.action-show div#wrapper div#wrapper2 div#wrapper3 div#main div#content div.issue.tracker-1.status-1.priority-4.priority-default.details div.subject div h3
   var issueSubject = $("html body div#main div#content div.issue div.subject");
   issueSubject.prepend(issueHeader);
   
   // create a clickable link, to copy the subject text
-  var button = document.createElement('a');
-  button.setAttribute('href', 'javascript:void(0)');
-  button.innerHTML = '&nbsp;';
-  button.className = "copy-icon";
-  button.title ='Click to copy the subject to the clipboard.';
-  button.addEventListener('click', function() {
-    //$("div.subject").innerHTML.select();
-    //document.execCommand("copy");
-    //alert("Copied the text: " + $("html body div#main div#content div.issue div.subject").innerText);
+  var anchor = document.createElement('a');
+  anchor.setAttribute('href', 'javascript:void(0)');
+  anchor.innerHTML = '&nbsp;';
+  anchor.className = "copy-icon";
+  anchor.title ='Click to copy the subject to the clipboard.';
+  anchor.addEventListener('click', function() {    
+    var outputIssueHeaderText = $("html body div#main div#content div.issue div.subject h2").text();
+    var outputIssueSubjectText = $("html body div#main div#content div.issue div.subject h3").text();
     var subjectNode = $("div.subject");
-    //TODO continue: Der subject node ist irgendwie nicht richtig definiert. Das untenstehende Select funktioniert nicht
-    
-    navigator.clipboard.writeText(subjectNode.text());
-    alert(subjectNode.text());
-    
-    /*
-    var range = document.createRange();
-     range.selectNode(subjectNode);
-     document.window.getSelection().addRange(range);
-     document.execCommand("copy");
-     alert("text copied") ;
-    */
-    
+    var outputText = outputIssueHeaderText + " - " + outputIssueSubjectText;
+    navigator.clipboard.writeText(outputText);
   }, false);
+  
   var subjectTitle = $("div.subject h3");
-  subjectTitle.append(button);
-  //button.insertBefore(issueHeader);
-  //issueHeader.appendChild(button);
-  //issueSubject.append(button);
-
+  subjectTitle.append(anchor);
 }) ();
