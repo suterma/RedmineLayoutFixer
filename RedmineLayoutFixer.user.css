@@ -19,7 +19,7 @@
 /* ==UserStyle==
 @name     Redmine Issue Header Layout fixer
 @namespace   https://github.com/suterma/RedmineLayoutFixer/
-@description For the RedmineLayoutFixer.user.js, this provices the styling.
+@description For the RedmineLayoutFixer.user.js, this provices the styling. Use with URL's matching the regexp: https://.*redmine.*\/issues\/.*
 @author       opensource@marcelsuter.ch, GPLv3 License
 @version 1.0.0-beta
 @grant    none
