@@ -30,9 +30,8 @@
         head.appendChild(style);
     }
 
-    //Add css (this is a minified version of the RedmineLayoutFixer.user.css file)
-    //TODO minify and insert
-    addGlobalStyle(".copy-icon{}");
+    //Add css (this is a minified version of the RedmineLayoutFixer.user.css file, processed by https://cssminifier.com/)
+    addGlobalStyle(".copy-icon{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgZGF0YS1pY29uPSJmaWxlIiB2aWV3Qm94PSIwIDAgOCA4Ij4gPHBhdGggc3R5bGU9ImZpbGw6cmdiKDg1LCA4NSwgODUpOyIgZD0iTTAgMHY4aDd2LTRoLTR2LTRoLTN6bTQgMHYzaDNsLTMtM3oiIC8+PC9zdmc+);background-size:1em;background-repeat:no-repeat;background-position:center;height:1.5em;width:1.5em;display:inline-flex;margin-left:5px}#header,#main,#top-menu,#wrapper3,div.subject h2{margin:0}.copy-icon:hover{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgZGF0YS1pY29uPSJmaWxlIiB2aWV3Qm94PSIwIDAgOCA4Ij4gPHBhdGggc3R5bGU9ImZpbGw6cmdiKDE5OCwgMjYsIDI2KTsiIGQ9Ik0wIDB2OGg3di00aC00di00aC0zem00IDB2M2gzbC0zLTN6IiAvPjwvc3ZnPg==);text-decoration-line:none}div.issue{background:0 0;padding:0;border:none}#content{background-color:#ffd}#issue-changesets div.changeset:nth-child(2n),.even,div#issue-changesets,table.list:not(.odd-even) tbody tr:nth-child(2n){background:#f0f0f0}");
 
   // get the content header of an issue
   var issueHeader = $("html body.controller-issues div#wrapper div#main div#content h2");
