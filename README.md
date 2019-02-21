@@ -1,4 +1,6 @@
 # RedmineLayoutFixer
+![License](https://img.shields.io/github/license/suterma/RedmineLayoutFixer.svg)
+
 A [Greasemonkey](https://www.greasespot.net/) / [Tampermonkey](https://tampermonkey.net/) user script, that rearranges the layout of Redmine issue pages. Especially allows better use of space and allows for easy copy-paste of the issue's caption, consisting of the issue title and subject at once.
 
 # How to install
